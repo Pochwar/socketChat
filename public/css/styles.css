@@ -1,0 +1,68 @@
+#superChat{
+    position: absolute;
+    bottom: 0;
+}
+
+#chat{
+    max-block-size: 400px;
+    overflow: scroll;
+}
+
+.selfMsg, .userMsg{
+    background: #327493;
+    color: #fff;
+    padding: 5px;
+    margin: 10px 5px;
+    width: 80%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    position: relative;
+}
+.selfMsg{
+    background: #327493;
+    margin-left: 20%;
+}
+
+.selfMsg:before{
+     content: "";
+     position: absolute;
+     right: 10px;
+     bottom: -9px;
+     border-left: 10px solid transparent;
+     border-top: 10px solid #327493;
+ }
+
+.userMsg{
+    background: #329333;
+}
+
+.userMsg:before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: -9px;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #329333;
+}
+
+.userName{
+    margin: 0;
+}
+
+.msg{
+    margin: 0;
+}
+
+#msg{
+    width: 400px;
+    height: 80px;
+}
+
+#send{
+
+}
+
+#info{
+    height: 20px;
+    margin-bottom: 5px;
+}

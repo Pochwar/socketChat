@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<h1>😺 Chat</h1>
+
+<div id="superChat">
+    <div id="chat"></div>
+    <textarea name="msg" id="msg" cols="30" rows="10" onkeypress="return validForm(event)"></textarea>
+    <div id="info"></div>
+    <button id="send">SEND</button>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/chat.js"></script>
+</body>
+</html>
