@@ -58,5 +58,5 @@ io.on('connection', socket => {
 
 
 
-const port = 8080;
+const port = process.env.HOST || 8080;
 server.listen(port, () => console.log('Connected on port ' + port + ' ! '));

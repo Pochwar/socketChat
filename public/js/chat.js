@@ -1,5 +1,8 @@
+//set host, change it if needed
+const host = 'http://localhost:8080';
+
 //connect to socket
-let socket = io.connect('http://localhost:8080');
+let socket = io.connect(host);
 
 //ask pseudo
 let pseudo = prompt('Quel est votre pseudo ?');
