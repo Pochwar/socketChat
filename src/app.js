@@ -24,15 +24,17 @@ expressServer.get('/', function(req, res){
 // socket.io
 const io = socket.listen(server);
 
+const users = [];
 
 io.on('connection', socket => {
-
     socket.on('newUser', pseudo => {
 
         if (pseudo === null || pseudo === ""){pseudo = `Anon${uniqid()}`}
         socket.pseudo = pseudo;
         socket.emit('info', `Bienvenue ${socket.pseudo}`);
         socket.broadcast.emit('info', `${socket.pseudo} vient de se connecter`);
+        users.push(socket.pseudo);
+        io.emit('users', users);
         console.log(`New user : ${socket.pseudo}`);
     });
 
@@ -51,12 +53,15 @@ io.on('connection', socket => {
 
     socket.on('disconnect', () => {
         socket.broadcast.emit('info', `${socket.pseudo} vient de se déconnecter`);
+        let index = users.indexOf(socket.pseudo);
+        if(index !== -1){
+            users.splice(index, 1);
+        }
+        io.emit('users', users);
         console.log(`${socket.pseudo} disconnected`)
     });
 
 });
 
-
-
-const port = process.env.HOST || 8080;
+const port = process.env.PORT || 8080;
 server.listen(port, () => console.log('Connected on port ' + port + ' ! '));

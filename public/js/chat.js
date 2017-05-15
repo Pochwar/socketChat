@@ -17,6 +17,17 @@ socket.on('info', message => {
     },2000)
 });
 
+//display connected users
+socket.on('users', users => {
+    document.querySelector('#users').innerHTML = "";
+    users.forEach(user => {
+        let p = document.createElement('p');
+        p.innerText = user
+        document.querySelector('#users').appendChild(p);
+    })
+
+});
+
 //send msg
 document.querySelector('#send').onclick = () => {
     sendMsg();
