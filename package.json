@@ -2,11 +2,14 @@
   "name": "socket",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/app.js",
   "scripts": {
     "start": "nodemon build/app.js",
     "build": "./node_modules/.bin/babel src/ --out-dir build/",
     "build:watch": "./node_modules/.bin/babel --watch src/ --out-dir build/"
+  },
+  "babel": {
+    "presets": ["es2015", "stage-1"]
   },
   "author": "",
   "license": "ISC",
